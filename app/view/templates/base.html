@@ -6,9 +6,15 @@
     {% assets 'cssmin' %}
         <link rel="stylesheet" href="{{ ASSET_URL }}">
     {% endassets %}
+    <script src="{{ url_for('static', filename='js/lib/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/lib/jquery.mask.min.js') }}"></script>
     <title>{{ title }}</title>
 </head>
 <body>
     {% block content %}{% endblock content %}
+
+    {% assets 'jsmin' %}
+        <script src="{{ ASSET_URL }}"></script>
+    {% endassets %}
 </body>
 </html>

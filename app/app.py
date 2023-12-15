@@ -5,8 +5,12 @@ from controller import routes
 app = Flask(__name__, template_folder='view/templates', static_folder='view/static')
 assets = Environment(app)
 
-css = Bundle('css/blades/config.css', 'css/blades/form.css', filters='cssmin', output='css/styles.min.css')
+css = Bundle('css/styles/*.css', filters='cssmin', output='css/styles.min.css')
 assets.register('cssmin', css)
+
+# Adicionar filters='jsmin' para minificar
+js = Bundle('js/scripts/*.js', output='js/scripts.min.js')
+assets.register('jsmin', js)
 
 routes.init(app)
 
